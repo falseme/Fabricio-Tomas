@@ -1,6 +1,6 @@
 ## 👋 Hi, I'm Fabricio Tomás.
-I'm a 19 year-old living in Argentina and a student of the UNL ([Universidad Nacional del Litoral](https://www.unl.edu.ar "Universidad Nacional del Litoral ARG")).
-I like maths and using them to achieve the most efficient algoritm.
+I'm a 19 year-old student of the UNL ([Universidad Nacional del Litoral](https://www.unl.edu.ar "Universidad Nacional del Litoral ARG")) living in Argentina.
+I like maths and using them to achieve the most efficient algoritm. My favorite math operation is the logarithm.
 
 ------------
 
