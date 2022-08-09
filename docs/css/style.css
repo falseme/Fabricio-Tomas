@@ -1,0 +1,48 @@
+html { overflow-x:hidden; }
+h1{
+  font-family: consolas;
+  font-weight: bold !important;
+}
+
+h3{
+  text-decoration: underline;
+}
+
+h4{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.presentation{
+  background-color: #282828;
+}
+
+.projects{
+  background-color: #2a2a2a;
+}
+
+.btn-100{
+  width: 100px !important;
+}
+
+#about-btn{
+  border-width: 2px;
+}
+
+.card{
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.btn-dark{
+  border-color: white !important;
+}
+
+footer{
+  height: 100px;
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+  left: 0;
+  width: 100% !important;
+}
