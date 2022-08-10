@@ -12,6 +12,10 @@ main{
   margin-top: 65px;
 } */
 
+main {
+  background-color: #2a2a2a;
+}
+
 h1{
   font-family: consolas;
   font-style: italic;
@@ -42,6 +46,10 @@ h4{
 }
 
 .projects{
+  background-color: #2a2a2a;
+}
+
+.gallery{
   background-color: #2a2a2a;
 }
 
