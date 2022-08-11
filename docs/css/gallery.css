@@ -72,10 +72,6 @@
   display: none;
 }
 
-.gallery small {
-  text-align: center;
-}
-
 @media (max-width:768px){
   .col-break{
     display: none;
