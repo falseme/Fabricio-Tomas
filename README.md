@@ -8,14 +8,16 @@ I like maths and using them to achieve the most efficient algoritm. My favorite 
 - Java
 - C#
 - C++
-- sql
 
 :no_mouth: Languajes I know and used to a lesser extent:
 - JS
 - PHP
 - gml (Game Maker)
 
-:neutral_face: HTML is not a programming languaje (jk).
+:neutral_face: Other languajes:
+- HTML
+- CSS
+- SQL
 
 ------------
 
