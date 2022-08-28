@@ -35,9 +35,13 @@ li{
 }
 
 #pfp-big{
+  background:
+    linear-gradient(#151515 0 0) padding-box,
+    linear-gradient(0deg, #2dccec, #011550) border-box;
   padding: 5px;
+  border: 1px solid transparent;
   border-radius: 50%;
-  border: solid 1px #0DCAF0;
+  display: inline-block;
   width: 200px;
   margin: auto;
 }
