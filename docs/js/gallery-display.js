@@ -1,7 +1,8 @@
-function display_image(path, w, h){
+function display_image(path, w, h, date){
   document.getElementById("dialog-image").setAttribute("src", path);
   document.getElementById("dialog").style.display = "block";
   document.getElementById("dialog-background").style.display = "block";
+  document.getElementById("image-date").innerHTML = date;
 
   if(w > h){
     let s = screen.width * 2/3;

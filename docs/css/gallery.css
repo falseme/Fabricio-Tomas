@@ -64,6 +64,13 @@
   width: 100%;
 }
 
+#image-date{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+}
+
 #dialog-background{
   position: fixed;
   background-color: rgba(0, 0, 0, .7);
