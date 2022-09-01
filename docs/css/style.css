@@ -1,5 +1,14 @@
 html { overflow-x:hidden; }
 
+* {
+  --orange: #fd7e14;
+  --orange2: red;
+  /* --orange2: #ff3e1c; */
+  --background: #151515;
+  --background_dark: #0d0d0d;
+  --background_light: #101010;
+}
+
 /* nav.navbar{
   position: fixed !important;
   width: 100%;
@@ -13,7 +22,7 @@ main{
 } */
 
 main/*, article*/ {
-  background-color: #151515;
+  background-color: var(--background);
 }
 
 h1{
@@ -36,8 +45,8 @@ li{
 
 #pfp-big{
   background:
-    linear-gradient(#151515 0 0) padding-box,
-    linear-gradient(0deg, #2dccec, #011550) border-box;
+    linear-gradient(var(--background) 0 0) padding-box,
+    linear-gradient(0deg, var(--orange), var(--orange2)) border-box;
   padding: 5px;
   border: 1px solid transparent;
   border-radius: 50%;
@@ -47,7 +56,7 @@ li{
 }
 
 .presentation{
-  background-color: #0d0d0d;
+  background-color: var(--background_dark);
   display: grid;
   justify-content: center;
 }
@@ -58,18 +67,41 @@ li{
 
 #about-btn{
   border-width: 2px;
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+#about-btn:hover{
+  background-color: var(--orange);
+  color: black;
+}
+
+#goup-btn {
+  background-color: var(--orange);
+  border: none;
 }
 
 .card{
-  margin-bottom: 20px;
-  margin-top: 20px;
+  /* margin-bottom: 20px;
+  margin-top: 20px; */
   border-color: #000000 !important;
 }
 
 .card-body{
   border-bottom-right-radius: 2%;
   border-bottom-left-radius: 2%;
-  background-color: #101010;
+  background-color: var(--background_light);
+}
+
+.card-footer {
+  /* position: absolute; */
+  /* margin: 0;
+  padding: 0; */
+  /* bottom: 0;
+  left: 0; */
+  width: 100%;
+  background-color: var(--background_light) !important;
+  border: none !important;
 }
 
 footer{
