@@ -69,6 +69,10 @@ li{
   width: 120px !important;
 }
 
+.btn-150{
+  width: 150px !important;
+}
+
 #about-btn{
   border-width: 2px;
   border-color: var(--orange);
