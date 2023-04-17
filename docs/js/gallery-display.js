@@ -5,7 +5,7 @@ function display_image(path, w, h, date){
   document.getElementById("image-date").innerHTML = date;
 
   if(w > h){
-    let s = screen.width * 2/3;
+    let s = screen.width * 1/2;
     document.getElementById("dialog").style.width = s + "px";
     document.getElementById("dialog").style.height = s*h/w + "px";
   }else{
