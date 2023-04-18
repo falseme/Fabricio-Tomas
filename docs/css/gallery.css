@@ -60,17 +60,22 @@
   z-index: 50;
 }
 
+#dialog .header {
+  display: flex;
+  justify-content: space-between;
+}
+
 #dialog img {
   width: 100%;
 }
 
-#image-date{
+/* #image-date{
   position: absolute;
   top: 0;
   right: 0;
   width: 40%;
   text-align: left;
-}
+} */
 
 #dialog-background{
   position: fixed;
