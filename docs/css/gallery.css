@@ -1,3 +1,22 @@
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--background);
+  color: white;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  display: none;
+  z-index: 50;
+}
+
+.loading--show {
+  display: flex;
+}
+
 .image-container {
   position: relative;
   width: 50%;

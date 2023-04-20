@@ -19,6 +19,52 @@
         box-shadow: 0 0 0 1px red;
       }
     </style> -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+
+        // Lista de urls que deseas precargar
+        const LIST_IMAGES_PRELOAD = ["res/gallery/coulds.jpg", "res/gallery/cuatro.jpg", "res/gallery/dog.jpg", "res/gallery/me.jpg", "res/gallery/park.jpg", "res/gallery/redclouds.jpg", "res/gallery/step.jpg", "res/gallery/web.jpg", "res/gallery/weird.jpg"];
+        const LOADING = document.querySelector('.loading');
+        const CONTAINER_IMAGES_PRELOAD = document.querySelector('#preload-images');
+        const SLEEP_CHECK = 50;
+
+        function makePreloadImages() {
+
+          LIST_IMAGES_PRELOAD.forEach(urlImg => {
+              const IMG_PRELOAD = document.createElement('img');
+              IMG_PRELOAD.src = urlImg;
+              IMG_PRELOAD.style = 'display: none';
+              CONTAINER_IMAGES_PRELOAD.appendChild(IMG_PRELOAD);
+          });
+        }
+
+        // Esperar un tiempo antes de voler a comprobar
+        function sleep(ms) {
+          return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function checkIfAllImagesCompleted() {
+
+          const NO_COMPLETES = Array.from(CONTAINER_IMAGES_PRELOAD.querySelectorAll('img')).filter((img) => {
+              return !img.complete;
+          });
+
+          if (NO_COMPLETES.length !== 0) {
+            await sleep(SLEEP_CHECK);
+            return checkIfAllImagesCompleted();
+          } else {
+            LOADING.classList.remove('loading--show');
+          }
+          return true;
+
+        }
+
+        // Init
+        makePreloadImages();
+        checkIfAllImagesCompleted();
+
+      });
+    </script>
   </head>
   <body>
 
@@ -28,6 +74,10 @@
     <div data-include="include/header.html"></div>
 
     <main>
+
+      <!-- LOADING -->
+      <div class="loading loading--show">Cargando imágenes</div>
+      <div id="preload-images"></div>
 
       <!-- IMAGE VIEW -->
       <div class="row justify-content-center">
