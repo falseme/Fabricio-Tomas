@@ -14,6 +14,10 @@
   text-decoration: underline;
 }
 
+.nav-item:hover a {
+  text-decoration: underline;
+}
+
 nav{
   background-color: #101010;
 }
