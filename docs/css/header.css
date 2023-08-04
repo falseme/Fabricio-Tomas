@@ -21,3 +21,12 @@
 nav{
   background-color: #101010;
 }
+
+.navbar-toggler {
+  color: #101010 !important;
+  border: 0 !important;
+}
+
+.navbar-toggler:focus {
+  background-color: #131313;
+} 

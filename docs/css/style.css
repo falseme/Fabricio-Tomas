@@ -1,13 +1,13 @@
 html, body {
   overflow-x: hidden;
   background-color: #000;
-  margin: -1px; //solve a white ugly line on mobile devices
+  margin: -1px; /* solve a white ugly line on mobile devices */
 }
 
 * {
   --orange: #fd7e14;
-  --orange2: red;
-  /* --orange2: #ff3e1c; */
+  --orange2: #f71045;
+  --orange3: #f74610;
   --background: #151515;
   --background_dark: #0d0d0d;
   --background_light: #101010;
@@ -35,6 +35,19 @@ h1{
   font-weight: 900 !important;
 }
 
+#dev-console {
+  background-color: var(--background);
+  border-radius: 12px;
+  width: fit-content;
+  color: white;
+}
+
+#dev-console b {
+  background: -webkit-linear-gradient(var(--orange), var(--orange3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 h3{
   text-decoration: underline;
 }
@@ -52,10 +65,10 @@ li{
     linear-gradient(var(--background) 0 0) padding-box,
     linear-gradient(0deg, var(--orange), var(--orange2)) border-box;
   padding: 5px;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   border-radius: 50%;
   display: inline-block;
-  width: 200px;
+  width: 220px;
   margin: auto;
 }
 
