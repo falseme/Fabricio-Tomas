@@ -26,8 +26,8 @@
   </head>
   <body>
 
-    <div data-include="include/goup.html"></div>
-    <div data-include="include/header.html"></div>
+    <div data-include="include/goup.html" replace-default="null"></div>
+    <div data-include="include/header.html" replace-default="Inicio"></div>
 
     <main>
 
@@ -65,10 +65,10 @@
         <h3 class="text-white text-center">Proyectos recientes</h3>
 
         <div class="row justify-content-evenly">
-          <div data-include="prjs/ds-falsebot.html"></div>
-          <div data-include="prjs/task-manager.html"></div>
-          <div data-include="prjs/chess.html"></div>
-          <div data-include="prjs/empty.html"></div>
+          <div data-include="prjs/ds-falsebot.html" replace-default="null"></div>
+          <div data-include="prjs/task-manager.html" replace-default="null"></div>
+          <div data-include="prjs/chess.html" replace-default="null"></div>
+          <div data-include="prjs/empty.html" replace-default="null"></div>
         </div>
 
         <div class="row justify-content-center">
@@ -81,7 +81,7 @@
 
     </main>
 
-    <div data-include="include/footer.html"></div>
+    <div data-include="include/footer.html" replace-default="null"></div>
 
     <script src="js/goup.js"></script>
     <script src="js/pfpgradient.js"></script>

@@ -6,4 +6,4 @@ const interval = setInterval(function(){
   dir += 1;
   if(dir >= 360) dir = 0;
   // console.log("out- " + dir);
-}, 8);
+}, 5);

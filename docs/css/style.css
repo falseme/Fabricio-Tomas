@@ -1,7 +1,9 @@
-html, body {
+html,
+body {
   overflow-x: hidden;
   background-color: #000;
-  margin: -1px; /* solve a white ugly line on mobile devices */
+  margin: -1px;
+  /* solve a white ugly line on mobile devices */
 }
 
 * {
@@ -25,11 +27,15 @@ main{
   margin-top: 65px;
 } */
 
-main/*, article*/ {
+main
+
+/*, article*/
+  {
   background-color: var(--background);
+  padding-top: 60px;
 }
 
-h1{
+h1 {
   font-family: consolas;
   font-style: italic;
   font-weight: 900 !important;
@@ -42,57 +48,71 @@ h1{
   color: white;
 }
 
-#dev-console b {
-  background: -webkit-linear-gradient(var(--orange), var(--orange3));
+#dev-console b,
+.nav-link b {
+  background: -webkit-linear-gradient(var(--orange2), var(--orange3));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-h3{
+.nav-item:hover a:has(b) {
+  text-decoration: none;
+}
+
+h3 {
   text-decoration: underline;
 }
 
-h4{
+h4 {
   font-style: italic;
 }
 
-li{
+li {
   padding-top: 12px;
 }
 
-#pfp-big{
+#pfp-big {
   background:
     linear-gradient(var(--background) 0 0) padding-box,
     linear-gradient(0deg, var(--orange), var(--orange2)) border-box;
   padding: 5px;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   border-radius: 50%;
   display: inline-block;
   width: 220px;
   margin: auto;
 }
 
-.presentation{
+/* #pfp {
+  background:
+    linear-gradient(var(--background) 0 0) padding-box,
+    linear-gradient(0deg, var(--orange), var(--orange3)) border-box;
+  padding: 5px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+} */
+
+.presentation {
   background-color: var(--background_dark);
   display: grid;
   justify-content: center;
 }
 
-.btn-100{
+.btn-100 {
   width: 120px !important;
 }
 
-.btn-150{
+.btn-150 {
   width: 150px !important;
 }
 
-#about-btn{
+#about-btn {
   border-width: 2px;
   border-color: var(--orange);
   color: var(--orange);
 }
 
-#about-btn:hover{
+#about-btn:hover {
   background-color: var(--orange);
   color: black;
 }
@@ -102,13 +122,13 @@ li{
   border: none;
 }
 
-.card{
+.card {
   /* margin-bottom: 20px;
   margin-top: 20px; */
   border-color: #000000 !important;
 }
 
-.card-body{
+.card-body {
   /* border-bottom-right-radius: 2%;
   border-bottom-left-radius: 2%; */
   background-color: var(--background_light);
@@ -120,7 +140,7 @@ li{
   border: none !important;
 }
 
-footer{
+footer {
   height: 165px;
   margin: 0;
   padding: 0;
