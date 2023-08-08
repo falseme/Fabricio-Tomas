@@ -10,6 +10,11 @@
     filter: invert(43%) sepia(0%) saturate(1215%) hue-rotate(176deg) brightness(79%) contrast(81%);
 }
 
+.video-thumbnail {
+    width: 100%;
+    border-radius: 5px;
+}
+
 .card-top {
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
