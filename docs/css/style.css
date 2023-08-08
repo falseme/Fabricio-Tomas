@@ -21,9 +21,7 @@ body {
   --background_light: #101010;
 }
 
-main
-/*, article*/
-  {
+main {
   background-color: var(--background);
   padding-top: 60px;
 }
@@ -112,45 +110,6 @@ li {
 #goup-btn {
   background-color: var(--orange);
   border: none;
-}
-
-.card {
-  border-color: var(--background_light) !important;
-}
-
-.prjlogo {
-  filter: invert(43%) sepia(0%) saturate(1215%) hue-rotate(176deg) brightness(79%) contrast(81%);
-}
-
-.card-top {
-  border-top-left-radius: inherit;
-  border-top-right-radius: inherit;
-  background-color: var(--background_dark);
-}
-
-.card-title b {
-  color: var(--orange);
-  text-decoration: underline;
-}
-
-.card-body {
-  background-color: var(--background_light);
-}
-
-.card-body p {
-  font-size: small;
-}
-
-.card-footer {
-  width: 100%;
-  background-color: var(--background_light) !important;
-  border: none !important;
-  display: flex;
-  justify-content: space-between;
-}
-
-.card-footer .disabled {
-  border: none !important;
 }
 
 #sidebar b {
