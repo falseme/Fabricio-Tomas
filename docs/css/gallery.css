@@ -11,6 +11,7 @@
   font-size: 2rem;
   display: none;
   z-index: 50;
+  opacity: 0.9;
 }
 
 .loading--show {
