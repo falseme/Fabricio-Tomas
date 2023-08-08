@@ -19,9 +19,9 @@
 
 .image-container {
   position: relative;
-  width: 50%;
+  /* width: 50%; */
   overflow: hidden;
-  margin: 20px 0;
+  /* margin: 20px 0; */
 }
 
 .image {
@@ -76,7 +76,7 @@
   top: 30px;
   background-color: rbga(0, 0, 0, .2);
   display: none;
-  z-index: 50;
+  z-index: 2000;
 }
 
 #dialog .header {
