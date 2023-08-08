@@ -1,7 +1,11 @@
+const text_left = "<b>></b>";
+const text_right = "<b>_</b> Developer";
+const text_right_space = "<b>&nbsp</b> Developer";
+
 var text_console = document.getElementById("dev-console");
 var text = ""; // text to display
-var text_list = [" Python", " Java", " C++", " C#"];
-var index = 0; // index inside text_list
+var text_list = [" Java", " Python", " C++", " C#", " Backend"];
+var index = 100; // index inside text_list
 var chars = 0; // character count
 
 var waiting = true; // says if must wait a few seconds before start typing again
@@ -16,9 +20,9 @@ const console_interval = setInterval(() => {
     if(waiting){
         
         if(display_dash)
-            text_console.innerHTML = "<b>></b>" + text + "<b>_</b> Dev";
+            text_console.innerHTML = text_left + text + text_right;
         else
-            text_console.innerHTML = "<b>></b>" + text + "<b>&nbsp</b> Dev";
+            text_console.innerHTML = "<b>></b>" + text + text_right_space;
         
         if(wait_count % 3 == 0)
             display_dash = !display_dash;
@@ -38,7 +42,7 @@ const console_interval = setInterval(() => {
     if(erasing){
 
         text = text.substring(0, text.length-1);
-        text_console.innerHTML = "<b>></b>" + text + "<b>_</b> Dev";
+        text_console.innerHTML = text_left + text + text_right;
 
         // reset
         if(text.length == 0){
@@ -58,5 +62,5 @@ const console_interval = setInterval(() => {
         display_dash = false;
     }
     text = text_list[index].substring(0, chars);
-    text_console.innerHTML = "<b>></b>" + text + "<b>_</b> Dev";
-}, 150);
+    text_console.innerHTML = text_left + text + text_right;
+}, 120);
