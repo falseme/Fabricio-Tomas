@@ -7,10 +7,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
       if (xhr.status >= 200 && xhr.status < 300) {
         var content = xhr.responseText;
-        if(replacedef != "null" && content.includes(replacedef)) {
+        if (replacedef != "null" && content.includes(replacedef)) {
           var init = content.search(replacedef);
-          var end = init+replacedef.length;
-          var firstpart = content.substring(0,init);
+          var end = init + replacedef.length;
+          var firstpart = content.substring(0, init);
           var secondpart = content.substring(end);
           content = firstpart + `<b>${replacedef}</b>` + secondpart
         }
