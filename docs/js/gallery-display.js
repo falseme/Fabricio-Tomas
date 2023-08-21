@@ -10,11 +10,13 @@ function display_image(path, w, h, date){
   let H = window.innerHeight;
 
   //image width - image height
-  let ih = H*0.85;
-  let iw = ih*w/h;
+  let ih = H * 0.85;
+  let iw = ih * w/h;
+  console.log(h, ih, H);
 
   document.getElementById("dialog").style.width = iw + "px";
   document.getElementById("dialog").style.height = ih + "px";
+  document.getElementById("dialog").style.top = (H-ih)/2 + "px";
 }
 
 function hide_image(){

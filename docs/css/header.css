@@ -14,10 +14,24 @@
   text-decoration: underline;
 }
 
+.nav-item a {
+  font-size: 17px;
+}
+
 .nav-item:hover a {
   text-decoration: underline;
 }
 
 nav{
   background-color: #101010;
+  z-index: 1500;
 }
+
+.navbar-toggler {
+  color: #101010 !important;
+  border: 0 !important;
+}
+
+.navbar-toggler:focus {
+  background-color: #131313;
+} 

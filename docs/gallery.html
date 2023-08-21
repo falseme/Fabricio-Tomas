@@ -1,199 +1,228 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="id-edge">
+<html lang="es">
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/gallery.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="id-edge">
 
-    <script src="js/include-html.js"></script>
-    <title>Galería – falseme</title>
-    <!-- <style data-emotion="css"></style>
+  <link rel="icon" href="res/icon.png">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/gallery.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/goup.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+  <script src="js/include-html.js"></script>
+  <title>!falseme - Galería</title>
+  <!-- <style data-emotion="css"></style>
     <style>
       html * {
         background: rgba(255, 0, 0, .1);
         box-shadow: 0 0 0 1px red;
       }
     </style> -->
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
 
-        // Lista de urls que deseas precargar
-        const LIST_IMAGES_PRELOAD = ["res/gallery/clouds.jpg", "res/gallery/cuatro.jpg", "res/gallery/dog.jpg", "res/gallery/me.jpg", "res/gallery/park.jpg", "res/gallery/redclouds.jpg", "res/gallery/step.jpg", "res/gallery/web.jpg", "res/gallery/weird.jpg"];
-        const LOADING = document.querySelector('.loading');
-        const CONTAINER_IMAGES_PRELOAD = document.querySelector('#preload-images');
-        const SLEEP_CHECK = 50;
+      // Lista de urls que deseas precargar
+      const LIST_IMAGES_PRELOAD = ["res/gallery/clouds.jpg", "res/gallery/cuatro.jpg", "res/gallery/dog.jpg", "res/gallery/me.jpg", "res/gallery/park.jpg", "res/gallery/redclouds.jpg", "res/gallery/step.jpg", "res/gallery/web.jpg", "res/gallery/weird.jpeg"];
+      const LOADING = document.querySelector('.loading');
+      const CONTAINER_IMAGES_PRELOAD = document.querySelector('#preload-images');
+      const SLEEP_CHECK = 50;
 
-        function makePreloadImages() {
+      function makePreloadImages() {
 
-          LIST_IMAGES_PRELOAD.forEach(urlImg => {
-              const IMG_PRELOAD = document.createElement('img');
-              IMG_PRELOAD.src = urlImg;
-              IMG_PRELOAD.style = 'display: none';
-              CONTAINER_IMAGES_PRELOAD.appendChild(IMG_PRELOAD);
-          });
+        LIST_IMAGES_PRELOAD.forEach(urlImg => {
+          const IMG_PRELOAD = document.createElement('img');
+          IMG_PRELOAD.src = urlImg;
+          IMG_PRELOAD.style = 'display: none';
+          CONTAINER_IMAGES_PRELOAD.appendChild(IMG_PRELOAD);
+        });
+      }
+
+      // Esperar un tiempo antes de voler a comprobar
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+
+      async function checkIfAllImagesCompleted() {
+
+        const NO_COMPLETES = Array.from(CONTAINER_IMAGES_PRELOAD.querySelectorAll('img')).filter((img) => {
+          return !img.complete;
+        });
+
+        if (NO_COMPLETES.length !== 0) {
+          await sleep(SLEEP_CHECK);
+          return checkIfAllImagesCompleted();
+        } else {
+          LOADING.classList.remove('loading--show');
         }
+        return true;
 
-        // Esperar un tiempo antes de voler a comprobar
-        function sleep(ms) {
-          return new Promise(resolve => setTimeout(resolve, ms));
-        }
+      }
 
-        async function checkIfAllImagesCompleted() {
+      // Init
+      makePreloadImages();
+      checkIfAllImagesCompleted();
 
-          const NO_COMPLETES = Array.from(CONTAINER_IMAGES_PRELOAD.querySelectorAll('img')).filter((img) => {
-              return !img.complete;
-          });
+    });
+  </script>
+</head>
 
-          if (NO_COMPLETES.length !== 0) {
-            await sleep(SLEEP_CHECK);
-            return checkIfAllImagesCompleted();
-          } else {
-            LOADING.classList.remove('loading--show');
-          }
-          return true;
+<body>
 
-        }
+  <div id="dialog-background"></div>
 
-        // Init
-        makePreloadImages();
-        checkIfAllImagesCompleted();
+  <div data-include="include/goup.html" replace-default="null"></div>
+  <div data-include="include/header.html" replace-default="Galería"></div>
 
-      });
-    </script>
-  </head>
-  <body>
+  <main>
 
-    <div id="dialog-background"></div>
-
-    <div data-include="include/goup.html"></div>
-    <div data-include="include/header.html"></div>
-
-    <main>
-
-      <!-- LOADING -->
-      <div class="loading loading--show">Cargando imágenes</div>
-      <div id="preload-images"></div>
-
-      <!-- IMAGE VIEW -->
-      <div class="row justify-content-center">
-        <div id="dialog" class="image-container">
-          <div class="header pb-2">
-            <i id="image-date" class="text-white">dd/mm/aaaa</i>
-            <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close" onclick="hide_image();"></button>
-          </div>
-          <img id="dialog-image" src="res/gallery/weird.jpeg" alt="dialog image">
-        </div>
+    <!-- LOADING -->
+    <div class="loading loading--show">
+      <b>Cargando Imágenes</b>
+      <div class="spinner-border mx-3" role="status">
+        <span class="sr-only"></span>
       </div>
+    </div>
+    <div id="preload-images"></div>
 
-      <section class="container-fluid">
+    <!-- IMAGE VIEW -->
+    <div class="row justify-content-center">
+      <div id="dialog" class="image-container">
+        <div class="header pb-2">
+          <i id="image-date" class="text-white">dd/mm/aaaa</i>
+          <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"
+            onclick="hide_image();"></button>
+        </div>
+        <img id="dialog-image" src="res/gallery/weird.jpeg" alt="dialog image">
+      </div>
+    </div>
 
-        <br>
-        <h3 class="text-white text-center">Galería</h3>
-        <br>
+    <!-- <h3 class="text-white text-center pt-4">Galería</h3> -->
 
-        <article class="row justify-content-evenly">
+    <div class="row p-4">
+
+      <section class="col col-12 col-sm-12 col-md-8 col-lg-9">
+
+        <div class="row row-cols-2 row-cols-sm-3 row-cols-md-3 row-cols-lg-4 row-cols-xl-4 justify-content-start m-2">
+          <!-- GALLERY CONTENT -->
           <!-- IMAGE -->
-          <div class="image-container col-5 col-md-3">
-            <img class="image" src="res/gallery/presets/clouds.jpg" alt="img-src">
-            <div class="overlay" onclick="display_image('res/gallery/clouds.jpg', 4160, 3120, '09/06/2021');">
-              <div class="text">
-                <h6>Unas nubes</h6>
+          <div class="p-3">
+            <div class="image-container col">
+              <img class="image" src="res/gallery/presets/clouds.jpg" alt="img-src">
+              <div class="overlay" onclick="display_image('res/gallery/clouds.jpg', 4160, 3120, '09/06/2021');">
+                <div class="text">
+                  <h6>Unas nubes</h6>
+                </div>
               </div>
             </div>
           </div>
           <!-- IMAGE -->
-          <div class="image-container col-5 col-md-3">
-            <img class="image" src="res/gallery/presets/dog.jpg" alt="img-src">
-            <div class="overlay" onclick="display_image('res/gallery/dog.jpg', 2322, 4128, '06/01/2021');">
-              <div class="text">
-                <h6>Mi mascota. Se llama Ema</h6>
+          <div class="p-3">
+            <div class="image-container col">
+              <img class="image" src="res/gallery/presets/dog.jpg" alt="img-src">
+              <div class="overlay" onclick="display_image('res/gallery/dog.jpg', 2322, 4128, '06/01/2021');">
+                <div class="text">
+                  <h6>Mi mascota. Se llama Ema</h6>
+                </div>
               </div>
             </div>
           </div>
           <!-- IMAGE -->
-          <div class="image-container col-5 col-md-3">
-            <img class="image" src="res/gallery/presets/me.jpg" alt="img-src">
-            <div class="overlay" onclick="display_image('res/gallery/me.jpg', 1440, 3120, '10/06/2022');">
-              <div class="text">
-                <h6>Foto de perfil<br>*Cara seria*</h6>
-              </div>
-            </div>
-          </div>
-          <!-- BREAK -->
-          <div class="col-break w-100"></div>
-          <!-- IMAGE -->
-          <div class="image-container col-5 col-md-3">
-            <img class="image" src="res/gallery/presets/step.jpg" alt="img-src">
-            <div class="overlay" onclick="display_image('res/gallery/step.jpg', 1440, 3120, '01/07/2022');">
-              <div class="text">
-                <h6>Borracho se queda sin teléfono celular</h6>
+          <div class="p-3">
+            <div class="image-container col">
+              <img class="image" src="res/gallery/presets/me.jpg" alt="img-src">
+              <div class="overlay" onclick="display_image('res/gallery/me.jpg', 1440, 3120, '10/06/2022');">
+                <div class="text">
+                  <h6>Foto de perfil<br>*Cara seria*</h6>
+                </div>
               </div>
             </div>
           </div>
           <!-- IMAGE -->
-          <div class="image-container col-5 col-md-3">
-            <img class="image" src="res/gallery/presets/weird.jpeg" alt="img-src">
-            <div class="overlay" onclick="display_image('res/gallery/weird.jpeg', 1836, 3264, '17/06/2022');">
-              <div class="text">
-                <h6>Esto no es mío, es de un amigo, lo juro</h6>
+          <div class="p-3">
+            <div class="image-container col">
+              <img class="image" src="res/gallery/presets/step.jpg" alt="img-src">
+              <div class="overlay" onclick="display_image('res/gallery/step.jpg', 1440, 3120, '01/07/2022');">
+                <div class="text">
+                  <h6>Borracho se queda sin teléfono celular</h6>
+                </div>
               </div>
             </div>
           </div>
           <!-- IMAGE -->
-          <div class="image-container col-5 col-md-3">
-            <img class="image" src="res/gallery/presets/web.jpg" alt="img-src">
-            <div class="overlay" onclick="display_image('res/gallery/web.jpg', 2322, 4128, '08/08/2022');">
-              <div class="text">
-                <h6>Un café mientras hacía esta página web</h6>
-              </div>
-            </div>
-          </div>
-          <!-- BREAK -->
-          <div class="col-break w-100"></div>
-          <!-- IMAGE -->
-          <div class="image-container col-5 col-md-3">
-            <img class="image" src="res/gallery/presets/cuatro.jpg" alt="img-src">
-            <div class="overlay" onclick="display_image('res/gallery/cuatro.jpg', 2322, 4128, '09/09/2022');">
-              <div class="text">
-                <h6>Mi amigo esquizofrenico: 404</h6>
+          <div class="p-3">
+            <div class="image-container col">
+              <img class="image" src="res/gallery/presets/weird.jpeg" alt="img-src">
+              <div class="overlay" onclick="display_image('res/gallery/weird.jpeg', 1836, 3264, '17/06/2022');">
+                <div class="text">
+                  <h6>Esto no es mío, es de un amigo, lo juro</h6>
+                </div>
               </div>
             </div>
           </div>
           <!-- IMAGE -->
-          <div class="image-container col-5 col-md-3">
-            <img class="image" src="res/gallery/presets/redclouds.jpg" alt="img-src">
-            <div class="overlay" onclick="display_image('res/gallery/redclouds.jpg', 2269, 1513, '09/09/2022');">
-              <div class="text">
-                <h6>Nubes rojas</h6>
+          <div class="p-3">
+            <div class="image-container col">
+              <img class="image" src="res/gallery/presets/web.jpg" alt="img-src">
+              <div class="overlay" onclick="display_image('res/gallery/web.jpg', 2322, 4128, '08/08/2022');">
+                <div class="text">
+                  <h6>Un café mientras hacía esta página web</h6>
+                </div>
               </div>
             </div>
           </div>
           <!-- IMAGE -->
-          <div class="empty-image col-5 col-md-3"></div>
+          <div class="p-3">
+            <div class="image-container col">
+              <img class="image" src="res/gallery/presets/cuatro.jpg" alt="img-src">
+              <div class="overlay" onclick="display_image('res/gallery/cuatro.jpg', 2322, 4128, '09/09/2022');">
+                <div class="text">
+                  <h6>Mi amigo esquizofrenico: 404</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- IMAGE -->
+          <div class="p-3">
+            <div class="image-container col">
+              <img class="image" src="res/gallery/presets/redclouds.jpg" alt="img-src">
+              <div class="overlay" onclick="display_image('res/gallery/redclouds.jpg', 2269, 1513, '09/09/2022');">
+                <div class="text">
+                  <h6>Nubes rojas</h6>
+                </div>
+              </div>
+            </div>
+          </div>
           <!--  -->
-        </article>
 
-        <!-- <article class="row justify-content-center">
-          <small class="col-12 text-white-50 text-center">
-            Si las imagenes no pueden visualizarse correctamente, recargue la página
-          </small>
-        </article> -->
-
-        <br>
+        </div>
 
       </section>
 
-    </main>
+      <section class="col col-12 col-sm-12 col-md-4 col-lg-3">
 
-    <div data-include="include/footer.html"></div>
+        <div data-include="include/sidebar.html" replace-default="null"></div>
 
-    <script src="js/gallery-display.js"></script>
-    <script src="js/goup.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-  </body>
+      </section>
+
+    </div>
+
+  </main>
+
+  <div data-include="include/footer.html" replace-default="null"></div>
+
+  <script src="js/gallery-display.js"></script>
+  <script src="js/goup.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
