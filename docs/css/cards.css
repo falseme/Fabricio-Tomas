@@ -1,5 +1,5 @@
 * {
-    --tag_background: #a87128;
+    --tag_background: #f99e4c;
 }
 
 .card {
@@ -19,6 +19,7 @@
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
     background-color: var(--background_dark);
+    height:60px;
 }
 
 .card-title b {

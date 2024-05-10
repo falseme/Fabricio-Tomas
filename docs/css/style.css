@@ -13,9 +13,9 @@ body {
 }
 
 * {
-  --orange: #fd7e14;
-  --orange2: #f71045;
-  --orange3: #f74610;
+  --orange: #ff6f38;
+  --orange2: #cc2a49;
+  --orange3: #ff6f10;
   --background: #151515;
   --background_dark: #0d0d0d;
   --background_light: #101010;
@@ -112,17 +112,13 @@ li {
   border: none;
 }
 
-#sidebar b {
-  text-decoration: underline;
-}
-
 #sidebar .btn {
   border-radius: 5px;
   border: none;
 }
 
 footer {
-  height: 220px;
+  height: 230px;
   margin: 0;
   padding: 0;
   padding-top: 5px;
