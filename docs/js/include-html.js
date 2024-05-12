@@ -1,19 +1,62 @@
 document.addEventListener("DOMContentLoaded", (e) => {
-  const includeHTML = (el, url, replacedef) => {
+
+  const include_element = (el, url) => {
     const xhr = new XMLHttpRequest();
 
     xhr.addEventListener("readystatechange", (e) => {
       if (xhr.readyState !== 4) return;
-
       if (xhr.status >= 200 && xhr.status < 300) {
         var content = xhr.responseText;
-        if (replacedef != "null" && content.includes(replacedef)) {
-          var init = content.search(replacedef);
-          var end = init + replacedef.length;
+        el.outerHTML = content;
+      } else {
+        let message =
+          xhr.statusText ||
+          "Error loading the file, verify that you are making the request by http or https";
+        el.outerHTML = `<div><p>Error ${xhr.status}: ${message}</p></div>`;
+      }
+    });
+
+    xhr.open("GET", url);
+    xhr.setRequestHeader("Content-type", "text/html; charset=utf-8");
+    xhr.send();
+  };
+
+  const include_bold_element = (el, url, bold_text) => {
+    const xhr = new XMLHttpRequest();
+
+    xhr.addEventListener("readystatechange", (e) => {
+      if (xhr.readyState !== 4) return;
+      if (xhr.status >= 200 && xhr.status < 300) {
+        var content = xhr.responseText;
+        if (content.includes(bold_text)) {
+          var init = content.search(bold_text);
+          var end = init + bold_text.length;
           var firstpart = content.substring(0, init);
           var secondpart = content.substring(end);
-          content = firstpart + `<b>${replacedef}</b>` + secondpart
+          content = firstpart + `<b>${bold_text}</b>` + secondpart
         }
+        el.outerHTML = content;
+      } else {
+        let message =
+          xhr.statusText ||
+          "Error loading the file, verify that you are making the request by http or https";
+        el.outerHTML = `<div><p>Error ${xhr.status}: ${message}</p></div>`;
+      }
+    });
+
+    xhr.open("GET", url);
+    xhr.setRequestHeader("Content-type", "text/html; charset=utf-8");
+    xhr.send();
+  };
+
+  const include_element_replace = (el, url, default_text, replace_text) => {
+    const xhr = new XMLHttpRequest();
+
+    xhr.addEventListener("readystatechange", (e) => {
+      if (xhr.readyState !== 4) return;
+      if (xhr.status >= 200 && xhr.status < 300) {
+        var content = xhr.responseText;
+        content = content.replace(default_text, replace_text);
         el.outerHTML = content;
       } else {
         let message =
@@ -30,5 +73,13 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
   document
     .querySelectorAll("[data-include]")
-    .forEach((el) => includeHTML(el, el.getAttribute("data-include"), el.getAttribute("replace-default")));
+    .forEach((el) => include_element(el, el.getAttribute("data-include")));
+
+  document
+    .querySelectorAll("[data-include-bold]")
+    .forEach((el) => include_bold_element(el, el.getAttribute("data-include-bold"), el.getAttribute("bold")));
+
+  document
+    .querySelectorAll("[data-include-replace]")
+    .forEach((el) => include_element_replace(el, el.getAttribute("data-include-replace"), el.getAttribute("replace"), el.getAttribute("with")));
 });

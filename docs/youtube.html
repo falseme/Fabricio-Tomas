@@ -30,8 +30,8 @@
 
 <body>
 
-  <div data-include="include/goup.html" replace-default="null"></div>
-  <div data-include="include/header.html" replace-default="Contenido"></div>
+  <div data-include="include/goup.html"></div>
+  <div data-include-bold="include/header.html" bold="Contenido"></div>
 
   <main>
 
@@ -40,18 +40,18 @@
       <section class="col col-12 col-sm-12 col-md-8 col-lg-9">
 
         <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-start m-2 mx-5 mx-sm-2">
-          <div data-include="cards/videos/preset.html" replace-default="null"></div>
-          <div data-include="cards/videos/preset1.html" replace-default="null"></div>
-          <div data-include="cards/videos/preset2.html" replace-default="null"></div>
-          <div data-include="cards/videos/preset3.html" replace-default="null"></div>
-          <div data-include="cards/videos/preset4.html" replace-default="null"></div>
+          <div data-include="cards/videos/preset.html"></div>
+          <div data-include="cards/videos/preset2.html"></div>
+          <div data-include="cards/videos/preset3.html"></div>
+          <div data-include="cards/videos/preset4.html"></div>
+          <div data-include="cards/videos/preset1.html"></div>
         </div>
 
       </section>
 
       <section class="col col-12 col-sm-12 col-md-4 col-lg-3">
 
-        <div data-include="include/sidebar.html" replace-default="Youtube"></div>
+        <div data-include-bold="include/sidebar.html" bold="Youtube"></div>
 
       </section>
 
@@ -70,7 +70,7 @@
 
   </main>
 
-  <div data-include="include/footer.html" replace-default="null"></div> 
+  <div data-include-replace="include/footer.html" replace='"random quote" - me' with='"Algunas cosas son difíciles de entender, como las medusas ¿Entiendes a las medusas?" - Rin (Katawa Shoujo)'></div>
 
   <script src="js/goup.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"

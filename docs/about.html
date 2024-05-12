@@ -26,8 +26,8 @@
   </head>
   <body>
 
-    <div data-include="include/goup.html" replace-default="null"></div>
-    <div data-include="include/header.html" replace-default="Información"></div>
+    <div data-include="include/goup.html"></div>
+    <div data-include-bold="include/header.html" bold="Información"></div>
 
     <main>
 
@@ -204,7 +204,7 @@
 
     </main>
 
-    <div data-include="include/footer.html" replace-default="null"></div>
+    <div data-include-replace="include/footer.html" replace='"random quote" - me' with='"Hay muchas cosas ahí afuera que no tienen sentido. Nuestro trabajo es hacer que lo tengan" - Mutou (Katawa Shoujo)'></div>
 
     <script src="js/goup.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>

@@ -63,4 +63,4 @@ const console_interval = setInterval(() => {
     }
     text = text_list[index].substring(0, chars);
     text_console.innerHTML = text_left + text + text_right;
-}, 120);
+}, 110);
