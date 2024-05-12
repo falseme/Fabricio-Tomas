@@ -40,7 +40,7 @@ h1 {
 }
 
 #dev-console b {
-  background: -webkit-linear-gradient(var(--orange2), var(--orange));
+  background: -webkit-linear-gradient(var(--orange), var(--orange2));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
