@@ -28,13 +28,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
       if (xhr.readyState !== 4) return;
       if (xhr.status >= 200 && xhr.status < 300) {
         var content = xhr.responseText;
-        if (content.includes(bold_text)) {
-          var init = content.search(bold_text);
-          var end = init + bold_text.length;
-          var firstpart = content.substring(0, init);
-          var secondpart = content.substring(end);
-          content = firstpart + `<b>${bold_text}</b>` + secondpart
-        }
+        content = content.replace(bold_text, "<b>"+bold_text+"</b>");
         el.outerHTML = content;
       } else {
         let message =
