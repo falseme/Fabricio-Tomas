@@ -20,12 +20,12 @@
   <script src="js/include-html.js"></script>
   <title>!falseme - Galería</title>
   <!-- <style data-emotion="css"></style>
-    <style>
-      html * {
-        background: rgba(255, 0, 0, .1);
-        box-shadow: 0 0 0 1px red;
-      }
-    </style> -->
+  <style>
+    html * {
+      background: rgba(255, 0, 0, .1);
+      box-shadow: 0 0 0 1px red;
+    }
+  </style> -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
 
@@ -78,35 +78,12 @@
 
   <div id="dialog-background"></div>
 
-  <div data-include="include/goup.html" replace-default="null"></div>
-  <div data-include="include/header.html" replace-default="Galería"></div>
+  <div data-include="include/goup.html"></div>
+  <div data-include-bold="include/header.html" bold="Galería"></div>
 
   <main>
 
-    <!-- LOADING -->
-    <div class="loading loading--show">
-      <b>Cargando Imágenes</b>
-      <div class="spinner-border mx-3" role="status">
-        <span class="sr-only"></span>
-      </div>
-    </div>
-    <div id="preload-images"></div>
-
-    <!-- IMAGE VIEW -->
-    <div class="row justify-content-center">
-      <div id="dialog" class="image-container">
-        <div class="header pb-2">
-          <i id="image-date" class="text-white">dd/mm/aaaa</i>
-          <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"
-            onclick="hide_image();"></button>
-        </div>
-        <img id="dialog-image" src="res/gallery/weird.jpeg" alt="dialog image">
-      </div>
-    </div>
-
-    <!-- <h3 class="text-white text-center pt-4">Galería</h3> -->
-
-    <div class="row p-4">
+    <div class="row p-2 mt-4">
 
       <section class="col col-12 col-sm-12 col-md-8 col-lg-9">
 
@@ -208,15 +185,36 @@
 
       <section class="col col-12 col-sm-12 col-md-4 col-lg-3">
 
-        <div data-include="include/sidebar.html" replace-default="Galería"></div>
+        <div data-include-bold="include/sidebar.html" bold="Galería"></div>
 
       </section>
+
+      <!-- LOADING -->
+      <div class="loading loading--show">
+        <b>Cargando Imágenes</b>
+        <div class="spinner-border mx-3" role="status">
+          <span class="sr-only"></span>
+        </div>
+      </div>
+      <div id="preload-images"></div>
+
+      <!-- IMAGE VIEW -->
+      <div class="row justify-content-center">
+        <div id="dialog" class="image-container">
+          <div class="header pb-2">
+            <i id="image-date" class="text-white">dd/mm/aaaa</i>
+            <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"
+              onclick="hide_image();"></button>
+          </div>
+          <img id="dialog-image" src="res/gallery/weird.jpeg" alt="dialog image">
+        </div>
+      </div>
 
     </div>
 
   </main>
 
-  <div data-include="include/footer.html" replace-default="null"></div>
+  <div data-include-replace="include/footer.html" replace='"random quote" - me' with='"Eso no está bien. Tiene que ser como el color cuando sabes que viste el significado de la vida en un sueño pero no lo recuerdas" - Rin (Katawa Shoujo)'></div>
 
   <script src="js/gallery-display.js"></script>
   <script src="js/goup.js"></script>

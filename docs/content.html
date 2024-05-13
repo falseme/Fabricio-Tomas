@@ -30,33 +30,31 @@
 
 <body>
 
-  <div data-include="include/goup.html" replace-default="null"></div>
-  <div data-include="include/header.html" replace-default="Contenido"></div>
+  <div data-include="include/goup.html"></div>
+  <div data-include-bold="include/header.html" bold="Contenido"></div>
 
   <main>
 
-    <br>
-
-    <div class="row p-2">
+    <div class="row p-2 mt-4">
 
       <section class="col col-12 col-sm-12 col-md-8 col-lg-9">
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-start m-2 mx-5 mx-sm-2">
-          <div data-include="cards/prjs/crogue.html" replace-default="null"></div>
-          <div data-include="cards/prjs/ds-falsemusic.html" replace-default="null"></div>
-          <div data-include="cards/prjs/task-manager.html" replace-default="null"></div>
-          <div data-include="cards/prjs/ds-falsebot.html" replace-default="null"></div>
-          <div data-include="cards/prjs/armorer-stuff.html" replace-default="null"></div>
-          <div data-include="cards/prjs/mc-server-stats.html" replace-default="null"></div>
-          <div data-include="cards/prjs/chess.html" replace-default="null"></div>
-          <div data-include="cards/prjs/craftidia-coins.html" replace-default="null"></div>
+          <div data-include="cards/prjs/crogue.html"></div>
+          <div data-include="cards/prjs/ds-falsemusic.html"></div>
+          <div data-include="cards/prjs/task-manager.html"></div>
+          <div data-include="cards/prjs/ds-falsebot.html"></div>
+          <div data-include="cards/prjs/armorer-stuff.html"></div>
+          <div data-include="cards/prjs/mc-server-stats.html"></div>
+          <div data-include="cards/prjs/chess.html"></div>
+          <div data-include="cards/prjs/craftidia-coins.html"></div>
         </div>
 
       </section>
 
       <section class="col col-12 col-sm-12 col-md-4 col-lg-3">
 
-        <div data-include="include/sidebar.html" replace-default="Proyectos"></div>
+        <div data-include-bold="include/sidebar.html" bold="Proyectos"></div>
 
       </section>
 
@@ -75,7 +73,7 @@
 
   </main>
 
-  <div data-include="include/footer.html" replace-default="null"></div>
+  <div data-include-replace="include/footer.html" replace='"random quote" - me' with='"¿Puedes aprovechar el día?" - Rin (Katawa Shoujo)'></div>
 
   <script src="js/goup.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"

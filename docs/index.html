@@ -27,8 +27,8 @@
   </head>
   <body>
 
-    <div data-include="include/goup.html" replace-default="null"></div>
-    <div data-include="include/header.html" replace-default="Inicio"></div>
+    <div data-include="include/goup.html"></div>
+    <div data-include-bold="include/header.html" bold="Inicio"></div>
 
     <main>
 
@@ -66,9 +66,9 @@
         <h3 class="text-white text-center">Proyectos recientes</h3>
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 justify-content-center m-2 mx-5 mx-sm-2">
-          <div data-include="cards/prjs/crogue.html" replace-default="null"></div>
-          <div data-include="cards/prjs/ds-falsemusic.html" replace-default="null"></div>
-          <div data-include="cards/prjs/task-manager.html" replace-default="null"></div>
+          <div data-include="cards/prjs/crogue.html"></div>
+          <div data-include="cards/prjs/ds-falsemusic.html"></div>
+          <div data-include="cards/prjs/task-manager.html"></div>
         </div>
 
         <div class="row justify-content-center">
@@ -81,7 +81,7 @@
 
     </main>
 
-    <div data-include="include/footer.html" replace-default="null"></div>
+    <div data-include-replace="include/footer.html" replace='"random quote" - me' with='"Nada significa algo cuando lo dices de cierta manera" - Hisao (Katawa Shoujo)'></div>
 
     <script src="js/goup.js"></script>
     <script src="js/pfpgradient.js"></script>
