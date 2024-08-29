@@ -4,7 +4,7 @@ const text_right_space = "<b>&nbsp</b> Developer";
 
 var text_console = document.getElementById("dev-console");
 var text = ""; // text to display
-var text_list = [" Java", " C++", " C#", " Python", " Backend"];
+var text_list = [" Java", " C++", " C#", " Backend"];
 var index = 100; // index inside text_list
 var chars = 0; // character count
 
